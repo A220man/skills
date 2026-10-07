@@ -66,7 +66,7 @@ Lessons are built from reusable **components**, stored in `./assets/`: styleshee
 
 Reuse is the default, not the exception. Before authoring a lesson, read `./assets/` and build from the components already there. When a lesson needs something new and reusable, write it as a component in `./assets/` and link to it; never inline code a future lesson would duplicate.
 
-A shared stylesheet is the first component every workspace earns: every lesson links it, so the lessons look like one consistent course rather than a pile of one-offs. As the workspace grows, so should the component library.
+A shared stylesheet is the first component every workspace earns: every lesson links it, so the lessons look like one consistent course rather than a pile of one-offs. Every lesson using a JavaScript component (such as `quiz.js` or an interactive simulator) includes the matching `<script src="../assets/<name>.js"></script>` tag before `</body>`, just as a stylesheet requires a `<link>` tag. Every lesson using a component from `./assets/` must explicitly wire the corresponding `<link>` or `<script>` tag in its HTML before the lesson is considered complete. As the workspace grows, so should the component library.
 
 ## The Mission
 
@@ -107,7 +107,7 @@ For skill acquisition, difficulty is the tool. Effortful retrieval is what build
 
 Each of these should be based on a **feedback loop**, where the user receives feedback on their performance. This feedback loop should be as tight as possible, giving feedback immediately - and ideally automatically.
 
-For quizzes, each answer should be exactly the same number of words (and characters, if possible). Vary which position holds the correct answer across questions. Don't give the user any clues about the answer through formatting or order.
+For quizzes, each answer should be exactly the same number of words (and characters, if possible). Vary which position holds the correct answer across questions. Don't give the user any clues about the answer through formatting or order. Confirm that any lesson with an interactive quiz includes `<script src="../assets/quiz.js"></script>` before `</body>` to wire up the interactive quiz behavior.
 
 ## Acquiring Wisdom
 
